@@ -41,11 +41,11 @@ class CarInterface(CarInterfaceBase):
     ret.steerLimitTimer = 0.8
     ret.steerRatio = 14.4
     
-    ret.lateralTuning.pid.kf = 0.000005
+    ret.lateralTuning.pid.kf = 0.00001
     ret.lateralTuning.pid.kpBP = [0., 0.]
-    ret.lateralTuning.pid.kpV = [0.04, 0.04] 
-    ret.lateralTuning.pid.kiBP = [0., 0.]
-    ret.lateralTuning.pid.kiV = [0.03, 0.03]
+    ret.lateralTuning.pid.kpV = [0.036, 0.036] 
+    ret.lateralTuning.pid.kiBP = [0., 20.]
+    ret.lateralTuning.pid.kiV = [0.005, 0.03]
 
     ###################################################
     # scc smoother
