@@ -45,7 +45,7 @@ class CarInterface(CarInterfaceBase):
     ret.lateralTuning.pid.kpBP = [0., 0.]
     ret.lateralTuning.pid.kpV = [0.036, 0.036] 
     ret.lateralTuning.pid.kiBP = [0., 20.]
-    ret.lateralTuning.pid.kiV = [0.005, 0.03]
+    ret.lateralTuning.pid.kiV = [0.005, 0.02]
 
     ###################################################
     # scc smoother
