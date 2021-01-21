@@ -95,8 +95,8 @@ class PathPlanner():
     #sr = max(sm['liveParameters'].steerRatio, 0.1)
 
 #    x = 0.9 if v_ego < 27 else 0.7
-#    x = interp(v_ego, [25, 30], [1.0, 0.8]) #90~110
-    x = 0.9
+    x = interp(v_ego, [0, 10, 30], [2.0, 1.0, 0.8]) #90~110
+#    x = 0.9
     sr = 14.4 #CP.steerRatio
     VM.update_params(x, sr)
 
