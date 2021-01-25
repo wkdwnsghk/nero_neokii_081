@@ -63,6 +63,8 @@ class PathPlanner():
     self.lane_change_timer = 0.0
     self.lane_change_ll_prob = 1.0
     self.prev_one_blinker = False
+    self.VM_refresh_cnt = 0
+
 
   def setup_mpc(self):
     self.libmpc = libmpc_py.libmpc
@@ -93,12 +95,12 @@ class PathPlanner():
     # Update vehicle model
     #x = max(sm['liveParameters'].stiffnessFactor, 0.1)
     #sr = max(sm['liveParameters'].steerRatio, 0.1)
-
-#    x = 0.9 if v_ego < 27 else 0.7
-    x = interp(v_ego, [0, 10, 30], [2.0, 1.0, 0.8]) #90~110
-#    x = 0.9
-    sr = 14.4 #CP.steerRatio
-    VM.update_params(x, sr)
+    
+    self.VM_refresh_cnt += 1
+    if self.VM_refresh_cnt % 500 == 0:
+      x = interp(v_ego, [0, 10, 30], [2.0, 1.0, 0.8]) #90~110
+      sr = 14.4 #CP.steerRatio
+      VM.update_params(x, sr)
 
     curvature_factor = VM.curvature_factor(v_ego)
 
