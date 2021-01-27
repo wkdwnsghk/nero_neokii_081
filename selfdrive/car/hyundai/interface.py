@@ -35,7 +35,7 @@ class CarInterface(CarInterfaceBase):
     ret.mass = 1737. + STD_CARGO_KG
     ret.wheelbase = 2.7
 
-    tire_stiffness_factor = 0.9 #반비례
+    tire_stiffness_factor = 0.8 #반비례
     ret.steerActuatorDelay = 0.7
     ret.steerRateCost = 1.5
     ret.steerLimitTimer = 0.8
@@ -44,8 +44,8 @@ class CarInterface(CarInterfaceBase):
     ret.lateralTuning.pid.kf = 0.00001
     ret.lateralTuning.pid.kpBP = [0., 0.]
     ret.lateralTuning.pid.kpV = [0.036, 0.036] 
-    ret.lateralTuning.pid.kiBP = [15., 25.]
-    ret.lateralTuning.pid.kiV = [0.01, 0.017]
+    ret.lateralTuning.pid.kiBP = [0., 0.]
+    ret.lateralTuning.pid.kiV = [0.01, 0.01]
 
     ###################################################
     # scc smoother
