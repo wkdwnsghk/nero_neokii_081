@@ -98,12 +98,8 @@ class PathPlanner():
     
     self.VM_refresh_cnt += 1
     if self.VM_refresh_cnt % 500 == 0:
-      if v_ego > 15:
-        x = 0.8 * max(sm['liveParameters'].stiffnessFactor, 0.1)
-        sr = 0.96 * max(sm['liveParameters'].steerRatio, 0.1)
-      else:
-        x = 0.8 #interp(v_ego, [0, 10, 30], [2.0, 1.0, 0.8]) #90~110
-        sr = CP.steerRatio #14.4, 14.7/15.3 = 0.96
+      x = 0.8 #interp(v_ego, [0, 10, 30], [2.0, 1.0, 0.8]) #90~110
+      sr = CP.steerRatio #14.4, 14.7/15.3 = 0.96
       VM.update_params(x, sr)
 
     curvature_factor = VM.curvature_factor(v_ego)
