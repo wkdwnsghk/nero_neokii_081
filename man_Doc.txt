@@ -1,4 +1,4 @@
-::scons c++ Rebuild
+::scons c, hpp, c++ Rebuild
 /data/openpilot scons -4j
 /data/openpilot scons -c
 
@@ -14,3 +14,20 @@ pkill -f controlsd; PYTHONPATH=/data/openpilot python /data/openpilot/selfdrive/
 
 ::consol 확인하기
 tmux a
+
+:: UI
+/selfdrive/ui/paint.cc
+/selfdrive/ui/sidebar.cc
+
+:: Safety - STEER MAX
+/openpilot/panda/board/safety/hyundai.h
+
+:: Driver_Monitor
+/selfdrive/monitoring/driver_monitor.py
+
+:: camera_offset
+/selfdrive/controls/lib/lane_planner.py
+
+:: Volume control
+/selfdrive/ui/android/ui.cc
+
