@@ -1,18 +1,19 @@
+
 ::scons c, hpp, c++ Rebuild
 /data/openpilot scons -4j
 /data/openpilot scons -c
 
-::scons cashe 지우기 및 Rebuild
+::scons cashe delete and Rebuild
 rm -rf scons_cache; cd /data/openpilot scons -c; reboot
 
 ::PANDA reflash
 cd /data/openpilot/panda; pkill -f boardd; PYTHONPATH=..; python -c "from panda import Panda; Panda().flash()"
 pkill -f boardd; cd /data/openpilot/panda/board; killall; make
 
-:: 컨트롤 확인하기 
+:: control state check
 pkill -f controlsd; PYTHONPATH=/data/openpilot python /data/openpilot/selfdrive/controls/controlsd.py
 
-::consol 확인하기
+:: printf consol check
 tmux a
 
 :: UI
